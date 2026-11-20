@@ -1,9 +1,5 @@
 # Mythic Editor
 
-A mobile-first, high-performance code editor engine written in TypeScript for [Crest-IDE](https://github.com/Crest-IDE).
-
-Mythic Editor is **not** a wrapper around an existing editor. It is an independent engine built on a piece-table text buffer and a virtualized DOM view, with algorithms faithfully adapted from Microsoft's Monaco Editor / VS Code source (see [Third-Party Notices](THIRD_PARTY_NOTICES.md)).
-
 ---
 
 ## Highlights
@@ -96,28 +92,6 @@ All subsystems follow one set of rules:
 | Surrogates | String offsets never land between a high and low surrogate      |
 
 ---
-
-## Project Structure
-
-```
-src/
-├── core/
-│   ├── model/                 # Position, Range, Selection, OffsetTransformer
-│   └── buffer/                # ITextBuffer, PieceTreeTextBuffer
-│       └── pieceTree/         # rbTree, lineStarts, pieceTreeBase
-├── view/
-│   ├── FontMetrics.ts         # Monospace sub-pixel measurement
-│   ├── Viewport.ts            # Scroll offsets and visible-line math
-│   ├── RenderedLinesCollection.ts  # DOM line recycling
-│   ├── ViewGutter.ts          # Line-number column
-│   ├── ViewCursor.ts          # Blinking caret
-│   ├── ViewSelection.ts       # Selection highlight rectangles
-│   ├── InputController.ts     # Textarea / IME bridge
-│   └── EditorView.ts          # View orchestrator
-├── playground/                # Interactive browser demo
-└── index.ts                   # Public exports
-tests/                         # Vitest unit tests
-```
 
 More detail on design decisions and invariants is in [ARCHITECTURE.md](ARCHITECTURE.md).
 
